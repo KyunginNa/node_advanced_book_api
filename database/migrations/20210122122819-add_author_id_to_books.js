@@ -8,7 +8,7 @@ module.exports = {
       {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Authors', //why plural?
+          model: 'Authors',
           as: 'author',
           key: 'id',
         },
@@ -17,8 +17,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn(
-      'Books', 'authorId'
-    )
+    await queryInterface.removeColumn('Books', 'authorId')
   },
 }

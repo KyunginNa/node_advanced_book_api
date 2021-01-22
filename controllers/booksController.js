@@ -12,21 +12,8 @@ const booksController = {
       ],
       attributes: ['title'],
     })
-    response.json({books: collection})
+    response.json({ books: collection })
   },
 }
 
 module.exports = booksController
-
-// const collection = {
-//   books: [
-//     {
-//       title: 'Fun with Node',
-//       author: 'T. Ochman',
-//     },
-//     {
-//       title: 'Fun with Node Part II',
-//       author: 'T. Ochman',
-//     },
-//   ],
-// }
