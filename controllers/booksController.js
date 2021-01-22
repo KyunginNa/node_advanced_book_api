@@ -1,19 +1,32 @@
+const models = require('../models')
+
 const booksController = {
-  index(request, response) {
-    const collection = {
-      books: [
+  async index(request, response) {
+    const collection = await models.Book.findAll({
+      include: [
         {
-          title: 'Fun with Node',
-          author: 'T. Ochman',
-        },
-        {
-          title: 'Fun with Node Part II',
-          author: 'T. Ochman',
+          model: models.Author,
+          as: 'author',
+          attributes: { exclude: ['createdAt', 'updatedAt', 'id'] },
         },
       ],
-    }
-    response.json(collection)
+      attributes: ['title'],
+    })
+    response.json({books: collection})
   },
 }
 
 module.exports = booksController
+
+// const collection = {
+//   books: [
+//     {
+//       title: 'Fun with Node',
+//       author: 'T. Ochman',
+//     },
+//     {
+//       title: 'Fun with Node Part II',
+//       author: 'T. Ochman',
+//     },
+//   ],
+// }

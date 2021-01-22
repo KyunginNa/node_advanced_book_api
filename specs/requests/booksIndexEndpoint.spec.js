@@ -26,12 +26,12 @@ describe('Get /books', () => {
     const expectedResponse = {
       books: [
         {
-          title: 'Fun with Node',
-          author: 'T. Ochman',
+          title: 'Learn NodeJS with Thomas',
+          author: { name: 'Thomas Ochman' },
         },
         {
-          title: 'Fun with Node Part II',
-          author: 'T. Ochman',
+          title: 'Learn Sequelize with Thomas',
+          author: { name: 'Thomas Ochman' },
         },
       ],
     }
